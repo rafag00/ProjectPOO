@@ -1,4 +1,4 @@
-public abstract class Discount {
-    protected Product product;
-    public abstract double priceWithDiscount(int number);
+interface Discount {
+
+    public double priceWithDiscount(int number);
 }

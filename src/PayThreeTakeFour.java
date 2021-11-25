@@ -1,12 +1,23 @@
-public class PayThreeTakeFour extends Discount{
+public class PayThreeTakeFour implements Discount{
+    protected Product product;
 
     public PayThreeTakeFour(Product product) {
         this.product = product;
     }
 
-    //to do
+    /**
+     * Calculates de total price with discount of the number of products
+     * @param number number of products
+     * @return total price with discount
+     */
     @Override
     public double priceWithDiscount(int number) {
-        return -1;
+        int aux = (int)number/4;
+        if(number%4 == 0){
+            return aux*product.getPrice()*3;
+        }
+        else{
+            return aux*product.getPrice()*3 + (number%4 * product.getPrice());
+        }
     }
 }
