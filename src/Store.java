@@ -45,7 +45,7 @@ public class Store {
 
             switch(choice)
             {
-                case 1 -> {
+                case 1: {
                     System.out.print("\nChoise 1\n");
 
                     //print all the products
@@ -87,16 +87,19 @@ public class Store {
                     customer.addOrder(order);
 
                     System.out.println();
+                    break;
                 }
-                case 2 -> {
+                case 2: {
                     System.out.print("\nChoise 2\n");
 
                     customer.printCustomerOrders();
 
                     System.out.println();
+                    break;
                 }
-                default -> {
+                default: {
                     System.out.println("\nChoise 3\nEnding programm! Thank you very much!");
+                    break;
                 }
             }
         }while(choice!=3);
