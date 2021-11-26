@@ -1,5 +1,5 @@
 public class PayThreeTakeFour implements Discount{
-    protected Product product;
+    private Product product;
 
     public PayThreeTakeFour(Product product) {
         this.product = product;
