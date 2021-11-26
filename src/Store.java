@@ -74,15 +74,24 @@ public class Store {
 
                     }while(id!=0 || registry.validProductId(id)==null);
 
-                    //i need discount to count the totalCost
-
+                    //Colculate the total cost considering the discounts!!!
                     double totalCost=0;
+                    
+                    //Ask the user about the day of the order
+                    System.out.println("Give the date that you want to make the order");
+                    System.out.print("Give the year: ");
+                    Scanner sc4 = new Scanner(System.in);
+                    int ano = sc4.nextInt();
+        
+                    System.out.print("Give the month: ");
+                    Scanner sc5 = new Scanner(System.in);
+                    int mes = sc5.nextInt();
+        
+                    System.out.print("Give the date: ");
+                    Scanner sc6 = new Scanner(System.in);
+                    int dia = sc6.nextInt();
 
-                    //the date today
-                    java.time.LocalDate currentD = java.time.LocalDate.now();
-                    Date today = new Date(currentD.getDayOfMonth(),currentD.getMonthValue(),currentD.getYear());
-
-                    Order order = new Order(totalCost,today,products);
+                    Order order = new Order(totalCost,new Date(dia,mes,ano),products);
 
                     customer.addOrder(order);
 
