@@ -1,4 +1,6 @@
-public class PayLess implements Discount{
+import java.io.Serializable;
+
+public class PayLess implements Discount, Serializable {
     private Product product;
 
     public PayLess(Product product) {
@@ -20,5 +22,12 @@ public class PayLess implements Discount{
             sum = sum + product.getPrice()*(100-(5*i))/100;
         }
         return sum;
+    }
+
+    @Override
+    public String toString() {
+        return "PayLess{" +
+                "product=" + product +
+                '}';
     }
 }

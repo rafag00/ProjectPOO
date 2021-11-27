@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 public class Furniture extends Product{
     private double weigth;
     private double dimension;
@@ -9,5 +11,17 @@ public class Furniture extends Product{
         this.stock = stock;
         this.weigth = weigth;
         this.dimension = heigth*width*depth;
+    }
+
+    @Override
+    public String toString() {
+        return "Furniture{" +
+                "weigth=" + weigth +
+                ", dimension=" + dimension +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", price=" + price +
+                ", stock=" + stock +
+                '}';
     }
 }

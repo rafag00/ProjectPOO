@@ -1,0 +1,6 @@
+Customer|Rafael Gonçalves|Rua da Boa União n24|rafael.antonio2000@gmail.com|1234|933726682|18/10/2000|true
+Food|Potato|995123|1.75|75|200|16
+Furniture|Sofa|995124|750.0|10|70.0|10.0|20.0|15.0
+Cleaning|Bleach|995125|2.0|60|7
+PayThreeTakeFour|995123
+PayLess|995124

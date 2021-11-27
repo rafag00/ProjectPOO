@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 public class Cleaning extends Product{
     private int toxicity;
 
@@ -7,5 +9,16 @@ public class Cleaning extends Product{
         this.price = price;
         this.stock = stock;
         this.toxicity = toxicity;
+    }
+
+    @Override
+    public String toString() {
+        return "Cleaning{" +
+                "toxicity=" + toxicity +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", price=" + price +
+                ", stock=" + stock +
+                '}';
     }
 }

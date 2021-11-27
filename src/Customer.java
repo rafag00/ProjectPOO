@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer implements Serializable {
     private String name;
     private String adress;
     private String email;
@@ -39,5 +40,19 @@ public class Customer {
         for(Order currentOrder: this.orders)
             System.out.println(currentOrder.toString());
 
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", birthday=" + birthday +
+                ", frequentCustomer=" + frequentCustomer +
+                ", orders=" + orders +
+                '}';
     }
 }

@@ -1,4 +1,6 @@
-public class PayThreeTakeFour implements Discount{
+import java.io.Serializable;
+
+public class PayThreeTakeFour implements Discount, Serializable {
     private Product product;
 
     public PayThreeTakeFour(Product product) {
@@ -19,5 +21,12 @@ public class PayThreeTakeFour implements Discount{
         else{
             return aux*product.getPrice()*3 + (number%4 * product.getPrice());
         }
+    }
+
+    @Override
+    public String toString() {
+        return "PayThreeTakeFour{" +
+                "product=" + product +
+                '}';
     }
 }

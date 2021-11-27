@@ -1,20 +1,23 @@
 
+import java.io.*;
 import java.util.ArrayList;
 
 /**
  *
  * 
  */
-public class Registry {
+public class Registry implements Serializable{
     
-    ArrayList<Customer> customers;
-    ArrayList<Product> products;
+    private ArrayList<Customer> customers;
+    private ArrayList<Product> products;
+    private ArrayList<Discount> discounts;
 
     public Registry() {
         this.customers = new ArrayList<>();
         this.products = new ArrayList<>();
+        this.discounts = new ArrayList<>();
     }
-    
+
     public void addCustomer(Customer aCustomer){
         this.customers.add(aCustomer);
     }
@@ -45,7 +48,25 @@ public class Registry {
         
         return null;  
     }
-    
-    
-    
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public ArrayList<Discount> getDiscounts() {
+        return discounts;
+    }
+
+    @Override
+    public String toString() {
+        return "Registry{" +
+                "customers=" + customers +
+                ", products=" + products +
+                ", discounts=" + discounts +
+                '}';
+    }
 }

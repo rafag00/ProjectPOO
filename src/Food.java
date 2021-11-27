@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 public class Food extends Product{
     private double calories;
     private double fat;
@@ -9,5 +11,17 @@ public class Food extends Product{
         this.stock = stock;
         this.calories = calories;
         this.fat = fat;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "calories=" + calories +
+                ", fat=" + fat +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", price=" + price +
+                ", stock=" + stock +
+                '}';
     }
 }
