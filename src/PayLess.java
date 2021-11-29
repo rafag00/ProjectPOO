@@ -24,6 +24,10 @@ public class PayLess implements Discount, Serializable {
         return sum;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
     @Override
     public String toString() {
         return "PayLess{" +

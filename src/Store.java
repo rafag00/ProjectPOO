@@ -125,8 +125,6 @@ public class Store {
 
         System.out.println(registry);
 
-        System.out.println("Wellcome to our online shopping!!!\n");
-
         //Log in for the customer
         Customer customer;
 
@@ -194,8 +192,35 @@ public class Store {
                         }
                     }
 
-                    //Colculate the total cost considering the discounts!!!
+                    
                     double totalCost=0;
+                    int quantity;
+                    boolean hasDiscount=false;
+                    
+                    for(int p=0;p<productsBasket.size();p++){
+                        
+                        for(Discount currentDiscount: registry.getDiscounts()){
+                            if(productsBasket.get(p)==currentDiscount.getProduct()){
+                                hasDiscount=true;
+                                quantity = 1;
+                                
+                                for(int k=p+1;k<productsBasket.size();k++){
+                                    if(productsBasket.get(p)== productsBasket.get(k)){
+                                        productsBasket.remove(productsBasket.get(k));
+                                        quantity++;
+                                    }  
+                                }
+                                
+                                totalCost+=currentDiscount.priceWithDiscount(quantity);
+                                break;
+                            }   
+                        }
+                        
+                        if(!hasDiscount){
+                            totalCost+=productsBasket.get(p).price;
+                        }
+                    }
+                    
                     
                     //Ask the user about the day of the order
                     System.out.println("Give the date that you want to make the order.");

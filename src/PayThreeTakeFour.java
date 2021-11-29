@@ -23,6 +23,10 @@ public class PayThreeTakeFour implements Discount, Serializable {
         }
     }
 
+    public Product getProduct() {
+        return product;
+    }
+    
     @Override
     public String toString() {
         return "PayThreeTakeFour{" +
