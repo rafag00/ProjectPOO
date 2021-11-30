@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 public class Food extends Product{
     private double calories;
     private double fat;
@@ -13,15 +11,12 @@ public class Food extends Product{
         this.fat = fat;
     }
 
+    public double getCustToWeigth(){
+        return 0;
+    }
+
     @Override
     public String toString() {
-        return "Food{" +
-                "calories=" + calories +
-                ", fat=" + fat +
-                ", name='" + name + '\'' +
-                ", id=" + id +
-                ", price=" + price +
-                ", stock=" + stock +
-                '}';
+        return super.toString()+"calories/100g("+calories+"), "+"fat("+fat+"%).";
     }
 }

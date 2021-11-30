@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 public class Furniture extends Product{
     private double weigth;
     private double dimension;
@@ -13,15 +11,17 @@ public class Furniture extends Product{
         this.dimension = heigth*width*depth;
     }
 
+    public double getCustToWeigth(){
+        if(weigth > 15 ) {
+            return 10;
+        }
+        else{
+            return 0;
+        }
+    }
+
     @Override
     public String toString() {
-        return "Furniture{" +
-                "weigth=" + weigth +
-                ", dimension=" + dimension +
-                ", name='" + name + '\'' +
-                ", id=" + id +
-                ", price=" + price +
-                ", stock=" + stock +
-                '}';
+        return super.toString()+"weigth("+weigth+"), "+"dimension("+dimension+").";
     }
 }

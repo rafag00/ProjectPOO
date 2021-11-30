@@ -42,6 +42,10 @@ public class Customer implements Serializable {
 
     }
 
+    public boolean isFrequentCustomer() {
+        return frequentCustomer;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -55,4 +59,6 @@ public class Customer implements Serializable {
                 ", orders=" + orders +
                 '}';
     }
+
+
 }

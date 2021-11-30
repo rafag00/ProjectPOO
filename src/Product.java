@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.Serializable;
 
 public abstract class Product implements Serializable {
@@ -23,13 +22,14 @@ public abstract class Product implements Serializable {
         return stock;
     }
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public abstract double getCustToWeigth();
+
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", price=" + price +
-                ", stock=" + stock +
-                '}';
+        return name+", id("+id+"), price uni("+price+"), ";
     }
 }

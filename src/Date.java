@@ -33,21 +33,12 @@ public class Date implements Serializable {
     }
 
     public boolean isValid(){
-        if(this.day != 0 && this.month!=0 && this.year!=0){
-            return true;
-        }
-        return false;
+        return this.day != 0 && this.month != 0 && this.year != 0;
     }
-    public boolean compareDate(Date date){
-        return this.day == date.day && this.month == date.month && this.year == date.year;
-    }
+
 
     @Override
     public String toString() {
-        return "Date{" +
-                "day=" + day +
-                ", month=" + month +
-                ", year=" + year +
-                '}';
+        return day+ "/"+month+"/"+year;
     }
 }
