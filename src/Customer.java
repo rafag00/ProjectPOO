@@ -1,6 +1,9 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Customer
+ */
 public class Customer implements Serializable {
     private String name;
     private String adress;
@@ -11,6 +14,16 @@ public class Customer implements Serializable {
     private boolean frequentCustomer;
     private ArrayList<Order> orders;
 
+    /**
+     * Constructor of the Customer.
+     * @param name of the Customer.
+     * @param adress of the Customer.
+     * @param email of the Customer.
+     * @param password of the Customer.
+     * @param telephone of the Customer.
+     * @param birthday of the Customer.
+     * @param frequentCustomer on the store.
+     */
     public Customer(String name, String adress, String email, String password, String telephone, Date birthday, boolean frequentCustomer) {
         this.name = name;
         this.adress = adress;
@@ -22,29 +35,38 @@ public class Customer implements Serializable {
         this.orders = new ArrayList<>();
     }
 
+    /**
+     * Returns the email of the Customer.
+     * @return String.
+     */
+    public String getEmail() { return email; }
 
-    public String getEmail() {
-        return email;
-    }
+    /**
+     * Reurns the password of the Customer.
+     * @return String.
+     */
+    public String getPassword() { return password; }
 
-    public String getPassword() {
-        return password;
-    }
+    /**
+     * Indicates if the user is frequent or not.
+     * @return true if it's frequent, false if not.
+     */
+    public boolean isFrequentCustomer() { return frequentCustomer; }
 
-    public void addOrder(Order aOrder){
-        this.orders.add(aOrder);
-    }
+    /**
+     * Adds a new Order to the array list of orders.
+     * @param aOrder order to be added.
+     */
+    public void addOrder(Order aOrder){ this.orders.add(aOrder); }
 
+    /**
+     * Prints all the Orders of the Customer.
+     */
     public void printCustomerOrders(){
-
         for(Order currentOrder: this.orders)
             System.out.println(currentOrder.toString());
-
     }
 
-    public boolean isFrequentCustomer() {
-        return frequentCustomer;
-    }
 
     @Override
     public String toString() {

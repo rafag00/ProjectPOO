@@ -2,6 +2,11 @@ import java.io.*;
 
 public class Store {
 
+    /**
+     * Writes de object ob, in the file fo
+     * @param fo object file to be written on
+     * @param ob object to be written
+     */
     private static void writeObject(File fo, Object ob){
         try{
             FileOutputStream fos = new FileOutputStream(fo);
@@ -15,6 +20,13 @@ public class Store {
         }
     }
 
+    /**
+     * Starts the program by checking if there is the "objects.obj" file.
+     * If it exists creates a Registry object and returns it.
+     * If it doesn't exist starts reading the txt file named "start.txt".
+     * In case of that file not existing, returns null, and gives an error.
+     * If the file exist, creates a new Registry object and create there the data existing in the txt file.
+     */
     private static Registry start(){
         File fo = new File("objects.obj");
         //object file
@@ -29,7 +41,7 @@ public class Store {
                 ois.close();
                 return  registry;
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("Error opening the file.");
             }
         }
         else{
@@ -103,6 +115,7 @@ public class Store {
     }
 
     /**
+     * Function that run the program.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

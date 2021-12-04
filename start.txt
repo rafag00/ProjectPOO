@@ -4,3 +4,7 @@ Furniture|Sofa|995124|750.0|10|70.0|10.0|20.0|15.0
 Cleaning|Bleach|995125|2.0|60|7
 PayThreeTakeFour|995123
 PayLess|995124
+Food|Spaghetti|995126|0.75|500|120|5
+Cleaning|Cif|995127|3.0|600|9
+Customer|Rogerio Mundo|Street anywhere n125|rog@gmail.com|password|964521364|15/5/2003|false
+

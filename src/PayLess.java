@@ -3,6 +3,10 @@ import java.io.Serializable;
 public class PayLess implements Discount, Serializable {
     private Product product;
 
+    /**
+     * Constructor of the discount
+     * @param product Product having the discount.
+     */
     public PayLess(Product product) {
         this.product = product;
     }
@@ -24,6 +28,10 @@ public class PayLess implements Discount, Serializable {
         return sum;
     }
 
+    /**
+     * Returns the product associated with the discount.
+     * @return Product object.
+     */
     public Product getProduct() {
         return product;
     }

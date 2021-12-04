@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * 
+ *Responsible for the global data of the project and the user interaction.
  */
 public class Registry implements Serializable{
     
@@ -12,17 +11,22 @@ public class Registry implements Serializable{
     private ArrayList<Product> products;
     private ArrayList<Discount> discounts;
 
+    /**
+     * Constructor of the Registry.
+     */
     public Registry() {
         this.customers = new ArrayList<>();
         this.products = new ArrayList<>();
         this.discounts = new ArrayList<>();
     }
 
-    public void addCustomer(Customer aCustomer){
-        this.customers.add(aCustomer);
-    }
-    
-    public Customer isCustomer(String username, String password){
+    /**
+     * Used to see if the username and the password given are valid.
+     * @param username the email of a Customer.
+     * @param password the password of a Customer.
+     * @return the customer witch as the email and password given, or null in case of invalid data.
+     */
+    private Customer isCustomer(String username, String password){
         
         for(Customer currentCustomer: customers){
             if(currentCustomer.getEmail().equals(username) && currentCustomer.getPassword().equals(password)) return currentCustomer;
@@ -30,17 +34,20 @@ public class Registry implements Serializable{
         return null;
         
     }
-    
-    public void addProduct(Food aFood){
-        this.products.add(aFood);
-    }
-    
-    public void printProducts(){
+
+    /**
+     * Prints the products existing in the products array list.
+     */
+    private void printProducts(){
         for(Product currentProduct: this.products)
             System.out.println(currentProduct.toString());
     }
-    
-    //check if there are a product with this id on the supermarket
+
+    /**
+     * Check if there is a product with this id on the products array list and returns it.
+     * @param id of the product.
+     * @return null if not found, a Product if found.
+     */
     public Product validProductId(int id){
         
         for(Product currentProduct: this.products)
@@ -49,15 +56,19 @@ public class Registry implements Serializable{
         return null;  
     }
 
+    /**
+     * Interaction with the user to login in their account.
+     * @return the Customer.
+     */
     public Customer logIn(){
         Customer customer;
 
         do{
-            System.out.print("Please ender your username: ");
+            System.out.print("Please enter your username: ");
             Scanner sc = new Scanner(System.in);
             String username = sc.nextLine();
 
-            System.out.print("Please ender your password: ");
+            System.out.print("Please enter your password: ");
             Scanner sc1 = new Scanner(System.in);
             String password = sc1.nextLine();
 
@@ -72,7 +83,13 @@ public class Registry implements Serializable{
         return customer;
     }
 
-    public boolean stockControler(Product product, int quantity){
+    /**
+     * Controls the stock of a product when the Customer is making a order.
+     * @param product Product being purchase.
+     * @param quantity The amount being purchase.
+     * @return ture if the quantity being purchase is possible, false in contrary.
+     */
+    private boolean stockControler(Product product, int quantity){
         if(product.getStock()-quantity < 0){
             System.out.println("There isn't enougth quantity of the product in stock.");
             return false;
@@ -83,13 +100,24 @@ public class Registry implements Serializable{
         }
     }
 
-    public void resetStock(ArrayList<Product> products, ArrayList<Integer> quantity){
+    /**
+     * If the Customer cancels an Order it will re-stock the products that where on the order.
+     * @param products list of the products on the order.
+     * @param quantity list of the amount of each product on the order.
+     */
+    private void resetStock(ArrayList<Product> products, ArrayList<Integer> quantity){
         for(int i=0; i<products.size(); i++){
             products.get(i).setStock(products.get(i).getStock()+ quantity.get(i));
         }
     }
 
-    public double calcTotalCost(ArrayList<Product> productsBasket, ArrayList<Integer> productsQuantity){
+    /**
+     * Calculates de total cost of the products in the basket of the order.
+     * @param productsBasket list of the products on the order.
+     * @param productsQuantity list of the amount of each product on the order.
+     * @return the total cost of the basket.
+     */
+    private double calcTotalCost(ArrayList<Product> productsBasket, ArrayList<Integer> productsQuantity){
         boolean hasDiscount=false;
         double totalcost=0;
 
@@ -108,7 +136,14 @@ public class Registry implements Serializable{
         return totalcost;
     }
 
-    public double calcTranp(Customer customer, ArrayList<Product> products, double custoProd){
+    /**
+     * Calculates the price of the transport of the order.
+     * @param customer Customer buying.
+     * @param products  Products on the order.
+     * @param custoProd Cost of all the products in the order.
+     * @return the price of the transport plus the price of the all the products.
+     */
+    private double calcTranp(Customer customer, ArrayList<Product> products, ArrayList<Integer> quantity, double custoProd){
         double end;
         double aux=0;
 
@@ -126,16 +161,20 @@ public class Registry implements Serializable{
             aux = 20;
         }
 
-        for(Product i: products){
-            end += i.getCustToWeigth();
-            aux += i.getCustToWeigth();
+        for(int i=0; i<products.size(); i++){
+            end += products.get(i).getCustToWeigth()*quantity.get(i);
+            aux += products.get(i).getCustToWeigth()* quantity.get(i);
         }
 
         System.out.println("Transport extra: "+aux+"€");
         return end;
     }
 
-    public Date createDate(){
+    /**
+     * Interacts with the user to create the date when the order is being purchased.
+     * @return the data of the purchase.
+     */
+    private Date createDate(){
         System.out.println("Give the date that you want to make the order.");
         Scanner s = new Scanner(System.in);
         int day=0, month=0, year=0;
@@ -190,7 +229,11 @@ public class Registry implements Serializable{
         return new Date(day, month, year);
     }
 
-    public void makeOrder(Customer customer) {
+    /**
+     * Interacts with the user to select the products being purchased, as well as their amount and the total cost of the order.
+     * @param customer Costumer making the order.
+     */
+    private void makeOrder(Customer customer) {
         double totalCost=0;
         int id, i=1, quantity=0, aux2;
         boolean pass;
@@ -257,7 +300,7 @@ public class Registry implements Serializable{
             //Ask the user about the day of the order
             Date date = createDate();
 
-            totalCost = calcTranp(customer, productsBasket, totalCost);
+            totalCost = calcTranp(customer, productsBasket, productQuantity, totalCost);
 
             System.out.println("Total cost of the order: "+totalCost+"€");
 
@@ -288,18 +331,17 @@ public class Registry implements Serializable{
 
     }
 
+    /**
+     * Start menu. Interacts with the user giving 3 options, and calling the functions responsible for each one.
+     * @param customer Customer logged in.
+     */
     public void menu(Customer customer){
         int choice;
 
         do{
             System.out.print("\033[H\033[2J");
             System.out.flush();
-            System.out.print("""
-                    Menu
-                    1)Make an order
-                    2)View previous orders
-                    3)Log out
-                    Ender your choise(1 or 2 or 3):\s""");
+            System.out.print("Menu\n1) Make an order \n2) View previous orders \n3) Log out \nEnder your choise(1 or 2 or 3):");
             Scanner sc2 = new Scanner(System.in);
             choice = sc2.nextInt();
 
@@ -307,14 +349,14 @@ public class Registry implements Serializable{
                 case 1 -> {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
-                    System.out.print("\nChoise 1\n");
+                    System.out.print("\nMaking a new Order:\n");
                     makeOrder(customer);
 
                 }
                 case 2 -> {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
-                    System.out.print("\nChoise 2\n");
+                    System.out.print("\nPrevious Orders:\n");
 
                     customer.printCustomerOrders();
 
@@ -328,15 +370,26 @@ public class Registry implements Serializable{
         }while(choice!=3);
     }
 
-
+    /**
+     * Return the array list of Customers.
+     * @return ArrayList of Customer.
+     */
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
 
+    /**
+     * Return the array list of Products.
+     * @return ArrayList of Product.
+     */
     public ArrayList<Product> getProducts() {
         return products;
     }
 
+    /**
+     * Return the array list of Discounts.
+     * @return ArrayList of Discount.
+     */
     public ArrayList<Discount> getDiscounts() {
         return discounts;
     }

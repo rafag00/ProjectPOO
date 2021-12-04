@@ -1,6 +1,14 @@
 public class Cleaning extends Product{
     private int toxicity;
 
+    /**
+     * Constructor of the Product.
+     * @param name of the Product.
+     * @param id of the Product.
+     * @param price of the Product.
+     * @param stock on store.
+     * @param toxicity of the Cleaning Product.
+     */
     public Cleaning(String name, int id, double price, int stock, int toxicity) {
         this.name = name;
         this.id = id;
@@ -9,6 +17,10 @@ public class Cleaning extends Product{
         this.toxicity = toxicity;
     }
 
+    /**
+     * Calculates de cost of the transport of the product.
+     * @return the cost of the transport.
+     */
     public double getCustToWeigth(){
         return 0;
     }
