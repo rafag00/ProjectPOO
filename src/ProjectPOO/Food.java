@@ -8,13 +8,13 @@ public class Food extends Product{
     private double fat;
 
     /**
-     * Constructor of the ProjectPOO.Product.
-     * @param name of the ProjectPOO.Product.
-     * @param id of the ProjectPOO.Product.
-     * @param price of the ProjectPOO.Product.
+     * Constructor of the Product.
+     * @param name of the Product.
+     * @param id of the Product.
+     * @param price of the Product.
      * @param stock on store.
-     * @param calories of the ProjectPOO.Food.
-     * @param fat percentage of the ProjectPOO.Food.
+     * @param calories of the Food.
+     * @param fat percentage of the Food.
      */
     public Food(String name, int id, double price, int stock, double calories, double fat) {
         this.name = name;

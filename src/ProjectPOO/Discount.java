@@ -14,7 +14,7 @@ interface Discount {
 
     /**
      * Returns the product associated with the discount.
-     * @return ProjectPOO.Product object.
+     * @return Product object.
      */
     Product getProduct();
 }

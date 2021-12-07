@@ -17,13 +17,13 @@ public class Customer implements Serializable {
     private ArrayList<Order> orders;
 
     /**
-     * Constructor of the ProjectPOO.Customer.
-     * @param name of the ProjectPOO.Customer.
-     * @param adress of the ProjectPOO.Customer.
-     * @param email of the ProjectPOO.Customer.
-     * @param password of the ProjectPOO.Customer.
-     * @param telephone of the ProjectPOO.Customer.
-     * @param birthday of the ProjectPOO.Customer.
+     * Constructor of the Customer.
+     * @param name of the Customer.
+     * @param adress of the Customer.
+     * @param email of the Customer.
+     * @param password of the Customer.
+     * @param telephone of the Customer.
+     * @param birthday of the Customer.
      * @param frequentCustomer on the store.
      */
     public Customer(String name, String adress, String email, String password, String telephone, Date birthday, boolean frequentCustomer) {
@@ -38,13 +38,13 @@ public class Customer implements Serializable {
     }
 
     /**
-     * Returns the email of the ProjectPOO.Customer.
+     * Returns the email of the Customer.
      * @return String.
      */
     public String getEmail() { return email; }
 
     /**
-     * Reurns the password of the ProjectPOO.Customer.
+     * Reurns the password of the Customer.
      * @return String.
      */
     public String getPassword() { return password; }
@@ -56,13 +56,13 @@ public class Customer implements Serializable {
     public boolean isFrequentCustomer() { return frequentCustomer; }
 
     /**
-     * Adds a new ProjectPOO.Order to the array list of orders.
+     * Adds a new Order to the array list of orders.
      * @param aOrder order to be added.
      */
     public void addOrder(Order aOrder){ this.orders.add(aOrder); }
 
     /**
-     * Prints all the Orders of the ProjectPOO.Customer.
+     * Prints all the Orders of the Customer.
      */
     public void printCustomerOrders(){
         for(Order currentOrder: this.orders)
@@ -72,7 +72,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "ProjectPOO.Customer{" +
+        return "Customer{" +
                 "name='" + name + '\'' +
                 ", adress='" + adress + '\'' +
                 ", email='" + email + '\'' +

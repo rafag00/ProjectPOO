@@ -10,7 +10,7 @@ public class PayThreeTakeFour implements Discount, Serializable {
 
     /**
      * Constructor of the discount
-     * @param product ProjectPOO.Product having the discount.
+     * @param product Product having the discount.
      */
     public PayThreeTakeFour(Product product) {
         this.product = product;
@@ -34,7 +34,7 @@ public class PayThreeTakeFour implements Discount, Serializable {
 
     /**
      * Returns the product associated with the discount.
-     * @return ProjectPOO.Product object.
+     * @return Product object.
      */
     public Product getProduct() {
         return product;
@@ -42,7 +42,7 @@ public class PayThreeTakeFour implements Discount, Serializable {
     
     @Override
     public String toString() {
-        return "ProjectPOO.PayThreeTakeFour{" +
+        return "PayThreeTakeFour{" +
                 "product=" + product +
                 '}';
     }

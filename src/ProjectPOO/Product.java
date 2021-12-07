@@ -12,7 +12,7 @@ public abstract class Product implements Serializable {
     protected int stock;
 
     /**
-     * Returns the name of the product.
+     * Returns the name of the Product.
      * @return String
      */
     public String getName() {
@@ -20,7 +20,7 @@ public abstract class Product implements Serializable {
     }
 
     /**
-     * Returns the id of the product.
+     * Returns the id of the Product.
      * @return int
      */
     public int getId() {
@@ -28,7 +28,7 @@ public abstract class Product implements Serializable {
     }
 
     /**
-     * Returns the price of the product.
+     * Returns the price of the Product.
      * @return double
      */
     public double getPrice() {
@@ -36,7 +36,7 @@ public abstract class Product implements Serializable {
     }
 
     /**
-     * Returns the stock of the product.
+     * Returns the stock of the Product.
      * @return int
      */
     public int getStock() {
@@ -44,7 +44,7 @@ public abstract class Product implements Serializable {
     }
 
     /**
-     * Changes the stock of the product.
+     * Changes the stock of the Product.
      * @param stock new stock to be inserted.
      */
     public void setStock(int stock) {
@@ -52,7 +52,7 @@ public abstract class Product implements Serializable {
     }
 
     /**
-     * Calculates de cost of the transport of the product.
+     * Calculates de cost of the transport of the Product.
      * @return the cost of the transport.
      */
     public abstract double getCustToWeigth();

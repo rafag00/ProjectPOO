@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *Responsible for the global data of the project and the user interaction.
+ * Responsible for the global data of the project and the user interaction.
  */
 public class Registry implements Serializable{
     
@@ -24,8 +24,8 @@ public class Registry implements Serializable{
 
     /**
      * Used to see if the username and the password given are valid.
-     * @param username the email of a ProjectPOO.Customer.
-     * @param password the password of a ProjectPOO.Customer.
+     * @param username the email of a Customer.
+     * @param password the password of a Customer.
      * @return the customer witch as the email and password given, or null in case of invalid data.
      */
     private Customer isCustomer(String username, String password){
@@ -48,7 +48,7 @@ public class Registry implements Serializable{
     /**
      * Check if there is a product with this id on the products array list and returns it.
      * @param id of the product.
-     * @return null if not found, a ProjectPOO.Product if found.
+     * @return null if not found, a Product if found.
      */
     public Product validProductId(int id){
         
@@ -60,7 +60,7 @@ public class Registry implements Serializable{
 
     /**
      * Interaction with the user to login in their account.
-     * @return the ProjectPOO.Customer.
+     * @return the Customer.
      */
     public Customer logIn(){
         Customer customer;
@@ -86,14 +86,14 @@ public class Registry implements Serializable{
     }
 
     /**
-     * Controls the stock of a product when the ProjectPOO.Customer is making a order.
-     * @param product ProjectPOO.Product being purchase.
+     * Controls the stock of a product when the Customer is making an order.
+     * @param product Product being purchase.
      * @param quantity The amount being purchase.
      * @return ture if the quantity being purchase is possible, false in contrary.
      */
     private boolean stockControler(Product product, int quantity){
         if(product.getStock()-quantity < 0){
-            System.out.println("There isn't enougth quantity of the product in stock.");
+            System.out.println("There isn't enough quantity of the product in stock.");
             return false;
         }
         else{
@@ -103,7 +103,7 @@ public class Registry implements Serializable{
     }
 
     /**
-     * If the ProjectPOO.Customer cancels an ProjectPOO.Order it will re-stock the products that where on the order.
+     * If the Customer cancels an Order it will re-stock the products that where on the order.
      * @param products list of the products on the order.
      * @param quantity list of the amount of each product on the order.
      */
@@ -140,8 +140,9 @@ public class Registry implements Serializable{
 
     /**
      * Calculates the price of the transport of the order.
-     * @param customer ProjectPOO.Customer buying.
-     * @param products  Products on the order.
+     * @param customer Customer buying.
+     * @param products Products on the order.
+     * @param quantity Quantity if each product in the order.
      * @param custoProd Cost of all the products in the order.
      * @return the price of the transport plus the price of the all the products.
      */
@@ -254,7 +255,7 @@ public class Registry implements Serializable{
             System.out.println("All the products in the supermarket:");
             printProducts();
             System.out.println();
-            System.out.print("ProjectPOO.Product " +i+ ": ");
+            System.out.print("Product " +i+ ": ");
             try{
                 aux = sc.nextLine();
                 id = Integer.parseInt(aux);
@@ -289,7 +290,7 @@ public class Registry implements Serializable{
                         i++;
                     }
                     else{
-                        System.out.println("ProjectPOO.Product canceled.");
+                        System.out.println("Product canceled.");
                     }
                 }
             }catch (NumberFormatException e){
@@ -306,7 +307,7 @@ public class Registry implements Serializable{
 
             System.out.println("Total cost of the order: "+totalCost+"€");
 
-            System.out.println("Do you wanna confirm this order?\n1-YES\n2-NO");
+            System.out.println("Do you wanna confirm this order?\n1-Confirm\n2-Cancel");
 
             while (true){
                 try{
@@ -322,7 +323,7 @@ public class Registry implements Serializable{
                     }
                     else {
                         resetStock(productsBasket, productQuantity);
-                        System.out.println("ProjectPOO.Order canceled.");
+                        System.out.println("Order canceled.");
                     }
                     break;
                 }catch (NumberFormatException e){
@@ -335,7 +336,7 @@ public class Registry implements Serializable{
 
     /**
      * Start menu. Interacts with the user giving 3 options, and calling the functions responsible for each one.
-     * @param customer ProjectPOO.Customer logged in.
+     * @param customer Customer logged in.
      */
     public void menu(Customer customer){
         int choice;
@@ -351,7 +352,7 @@ public class Registry implements Serializable{
                 case 1 -> {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
-                    System.out.print("\nMaking a new ProjectPOO.Order:\n");
+                    System.out.print("\nMaking a new Order:\n");
                     makeOrder(customer);
 
                 }
@@ -374,7 +375,7 @@ public class Registry implements Serializable{
 
     /**
      * Return the array list of Customers.
-     * @return ArrayList of ProjectPOO.Customer.
+     * @return ArrayList of Customer.
      */
     public ArrayList<Customer> getCustomers() {
         return customers;
@@ -382,7 +383,7 @@ public class Registry implements Serializable{
 
     /**
      * Return the array list of Products.
-     * @return ArrayList of ProjectPOO.Product.
+     * @return ArrayList of Product.
      */
     public ArrayList<Product> getProducts() {
         return products;
@@ -390,7 +391,7 @@ public class Registry implements Serializable{
 
     /**
      * Return the array list of Discounts.
-     * @return ArrayList of ProjectPOO.Discount.
+     * @return ArrayList of Discount.
      */
     public ArrayList<Discount> getDiscounts() {
         return discounts;

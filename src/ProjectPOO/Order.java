@@ -13,11 +13,11 @@ public class Order implements Serializable {
     private ArrayList<Integer> quantity;
 
     /**
-     * Constructor of the ProjectPOO.Order
-     * @param totalCost of the ProjectPOO.Order.
-     * @param date of the ProjectPOO.Order.
-     * @param products in the ProjectPOO.Order.
-     * @param quantity of each ProjectPOO.Product in the ProjectPOO.Order.
+     * Constructor of the Order
+     * @param totalCost of the Order.
+     * @param date of the Order.
+     * @param products in the Order.
+     * @param quantity of each Product in the Order.
      */
     public Order(double totalCost, Date date, ArrayList<Product> products, ArrayList<Integer> quantity) {
         this.totalCost = totalCost;
@@ -34,13 +34,13 @@ public class Order implements Serializable {
     private String printOrder(){
         StringBuilder end= new StringBuilder();
         for(int i=0; i<products.size(); i++){
-            end.append("ProjectPOO.Product ").append(i+1).append(": ").append(products.get(i)).append("\nQuantity: ").append(quantity.get(i)).append("\n");
+            end.append("Product ").append(i+1).append(": ").append(products.get(i)).append("\nQuantity: ").append(quantity.get(i)).append("\n");
         }
         return end.toString();
     }
 
     @Override
     public String toString() {
-        return "ProjectPOO.Order\t"+date+"\n"+printOrder()+"Total Cost: "+totalCost+"\n";
+        return "Order\t"+date+"\n"+printOrder()+"Total Cost: "+totalCost+"\n";
     }
 }

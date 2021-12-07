@@ -8,15 +8,15 @@ public class Furniture extends Product{
     private double dimension;
 
     /**
-     * Constructor of the ProjectPOO.Product.
-     * @param name of the ProjectPOO.Product.
-     * @param id of the ProjectPOO.Product.
-     * @param price of the ProjectPOO.Product.
+     * Constructor of the Product.
+     * @param name of the Product.
+     * @param id of the Product.
+     * @param price of the Product.
      * @param stock on store.
-     * @param weigth of the ProjectPOO.Furniture.
-     * @param heigth of the ProjectPOO.Furniture.
-     * @param width of the ProjectPOO.Furniture.
-     * @param depth of the ProjectPOO.Furniture.
+     * @param weigth of the Furniture.
+     * @param heigth of the Furniture.
+     * @param width of the Furniture.
+     * @param depth of the Furniture.
      */
     public Furniture(String name, int id, double price, int stock, double weigth, double heigth, double width, double depth) {
         this.name = name;

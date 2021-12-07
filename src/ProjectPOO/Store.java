@@ -27,10 +27,11 @@ public class Store {
 
     /**
      * Starts the program by checking if there is the "objects.obj" file.
-     * If it exists creates a ProjectPOO.Registry object and returns it.
+     * If it exists creates a Registry object and returns it.
      * If it doesn't exist starts reading the txt file named "start.txt".
      * In case of that file not existing, returns null, and gives an error.
-     * If the file exist, creates a new ProjectPOO.Registry object and create there the data existing in the txt file.
+     * If the file exist, creates a new Registry object and create there the data existing in the txt file.
+     * @return Registry object with the file information.
      */
     private static Registry start(){
         File fo = new File("objects.obj");
@@ -89,7 +90,7 @@ public class Store {
                             case "ProjectPOO.PayThreeTakeFour" -> {
                                 Product product = registry.validProductId(Integer.parseInt(split[1]));
                                 if (product == null) {
-                                    System.out.println("Error with ProjectPOO.Discount. ProjectPOO.Product " + split[1] + " doesn't exist.");
+                                    System.out.println("Error with Discount. Product " + split[1] + " doesn't exist.");
                                     break;
                                 }
                                 PayThreeTakeFour disc = new PayThreeTakeFour(product);
@@ -99,7 +100,7 @@ public class Store {
                             case "ProjectPOO.PayLess" -> {
                                 Product product2 = registry.validProductId(Integer.parseInt(split[1]));
                                 if (product2 == null) {
-                                    System.out.println("Error with ProjectPOO.Discount. ProjectPOO.Product " + split[1] + " doesn't exist.");
+                                    System.out.println("Error with Discount. Product " + split[1] + " doesn't exist.");
                                     break;
                                 }
                                 PayLess disc2 = new PayLess(product2);

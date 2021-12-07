@@ -9,7 +9,7 @@ public class Date implements Serializable {
     private int day, month, year;
 
     /**
-     * Constructor of the ProjectPOO.Date class.
+     * Constructor of the Date class.
      * It has security except on the leap year.
      * @param day of the class.
      * @param month of the class.

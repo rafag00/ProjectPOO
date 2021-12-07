@@ -7,12 +7,12 @@ public class Cleaning extends Product{
     private int toxicity;
 
     /**
-     * Constructor of the ProjectPOO.Product.
-     * @param name of the ProjectPOO.Product.
-     * @param id of the ProjectPOO.Product.
-     * @param price of the ProjectPOO.Product.
+     * Constructor of the Product.
+     * @param name of the Product.
+     * @param id of the Product.
+     * @param price of the Product.
      * @param stock on store.
-     * @param toxicity of the ProjectPOO.Cleaning ProjectPOO.Product.
+     * @param toxicity of the Cleaning Product.
      */
     public Cleaning(String name, int id, double price, int stock, int toxicity) {
         this.name = name;
