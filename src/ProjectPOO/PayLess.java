@@ -24,11 +24,13 @@ public class PayLess implements Discount, Serializable {
     @Override
     public double priceWithDiscount(int number) {
         double sum=0;
-        for(int i=0; i<10 ; i++){
-            if(i == number){
-                break;
+        for(int i=0; i < number ; i++){
+            if(i<10){
+                sum = sum + product.getPrice()*(100-(5*i))/ 100;
             }
-            sum = sum + product.getPrice()*(100-(5*i))/100;
+            else{
+                sum = sum + product.getPrice()*50/100;
+            }
         }
         return sum;
     }

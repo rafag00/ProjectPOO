@@ -63,7 +63,7 @@ public class Store {
                     while((line = br.readLine()) != null){
                         String[] split = line.split("\\|");
                         switch (split[0]) {
-                            case "ProjectPOO.Customer" -> {
+                            case "Customer" -> {
                                 String[] aux = split[6].split("/");
                                 int day = Integer.parseInt(aux[0]);
                                 int month = Integer.parseInt(aux[1]);
@@ -72,22 +72,22 @@ public class Store {
                                 registry.getCustomers().add(customer);
                             }
                             //System.out.println(customer);
-                            case "ProjectPOO.Food" -> {
+                            case "Food" -> {
                                 Food food = new Food(split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]), Integer.parseInt(split[4]), Double.parseDouble(split[5]), Double.parseDouble(split[6]));
                                 //System.out.println(food);
                                 registry.getProducts().add(food);
                             }
-                            case "ProjectPOO.Furniture" -> {
+                            case "Furniture" -> {
                                 Furniture furniture = new Furniture(split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]), Integer.parseInt(split[4]), Double.parseDouble(split[5]), Double.parseDouble(split[6]), Double.parseDouble(split[7]), Double.parseDouble(split[8]));
                                 //System.out.println(furniture);
                                 registry.getProducts().add(furniture);
                             }
-                            case "ProjectPOO.Cleaning" -> {
+                            case "Cleaning" -> {
                                 Cleaning cleaning = new Cleaning(split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]));
                                 //System.out.println(cleaning);
                                 registry.getProducts().add(cleaning);
                             }
-                            case "ProjectPOO.PayThreeTakeFour" -> {
+                            case "PayThreeTakeFour" -> {
                                 Product product = registry.validProductId(Integer.parseInt(split[1]));
                                 if (product == null) {
                                     System.out.println("Error with Discount. Product " + split[1] + " doesn't exist.");
@@ -97,7 +97,7 @@ public class Store {
                                 //System.out.println(disc);
                                 registry.getDiscounts().add(disc);
                             }
-                            case "ProjectPOO.PayLess" -> {
+                            case "PayLess" -> {
                                 Product product2 = registry.validProductId(Integer.parseInt(split[1]));
                                 if (product2 == null) {
                                     System.out.println("Error with Discount. Product " + split[1] + " doesn't exist.");
